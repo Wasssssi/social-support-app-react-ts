@@ -10,7 +10,7 @@ export const initialData: ApplicationData = {
 		city: '',
 		state: '',
 		country: '',
-		phone: '',
+		phone: { countryCode: '+971', number: '' },
 		email: '',
 	},
 	family: {
@@ -18,6 +18,7 @@ export const initialData: ApplicationData = {
 		dependents: '',
 		employmentStatus: '',
 		monthlyIncome: '',
+		currency: 'AED',
 		housingStatus: '',
 	},
 	situation: {

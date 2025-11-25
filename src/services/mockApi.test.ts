@@ -27,6 +27,7 @@ describe('mockApi service', () => {
         dependents: 0,
         employmentStatus: 'Unemployed',
         monthlyIncome: 0,
+        currency: 'AED',
         housingStatus: 'Renting',
       },
       situation: {
@@ -62,6 +63,7 @@ describe('mockApi service', () => {
         dependents: '',
         employmentStatus: '',
         monthlyIncome: '',
+        currency: 'AED',
         housingStatus: '',
       },
       situation: {
@@ -97,6 +99,7 @@ describe('mockApi service', () => {
         dependents: '',
         employmentStatus: '',
         monthlyIncome: '',
+        currency: 'AED',
         housingStatus: '',
       },
       situation: {
@@ -151,6 +154,7 @@ describe('mockApi service', () => {
         dependents: 2,
         employmentStatus: 'Part-time',
         monthlyIncome: 1500,
+        currency: 'AED',
         housingStatus: 'Owned',
       },
       situation: {

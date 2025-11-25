@@ -1,6 +1,5 @@
 import { describe, it, expect } from 'vitest';
 import { t } from './i18n';
-import type { Locale } from './types';
 
 describe('i18n', () => {
   describe('t function', () => {
@@ -29,10 +28,12 @@ describe('i18n', () => {
         'appTitle', 'language', 'english', 'arabic', 'next', 'back', 'submit', 'reset',
         'step1', 'step2', 'step3', 'name', 'nationalId', 'dateOfBirth', 'gender',
         'address', 'city', 'state', 'country', 'phone', 'email', 'maritalStatus',
-        'dependents', 'employmentStatus', 'monthlyIncome', 'housingStatus',
+        'dependents', 'employmentStatus', 'monthlyIncome', 'currency', 'housingStatus',
         'currentFinancialSituation', 'employmentCircumstances', 'reasonForApplying',
         'helpMeWrite', 'aiSuggestion', 'accept', 'edit', 'discard', 'cancel',
-        'generate', 'submitSuccess', 'submitError', 'aiError', 'required',
+        'generate', 'submitSuccess', 'submitError', 'confirmationTitle',
+        'confirmationSubtitle', 'summaryPersonal', 'summaryContact', 'summaryFinancial',
+        'startNewApplication', 'aiError', 'required',
       ] as const;
 
       keys.forEach(key => {
@@ -47,10 +48,12 @@ describe('i18n', () => {
         'appTitle', 'language', 'english', 'arabic', 'next', 'back', 'submit', 'reset',
         'step1', 'step2', 'step3', 'name', 'nationalId', 'dateOfBirth', 'gender',
         'address', 'city', 'state', 'country', 'phone', 'email', 'maritalStatus',
-        'dependents', 'employmentStatus', 'monthlyIncome', 'housingStatus',
+        'dependents', 'employmentStatus', 'monthlyIncome', 'currency', 'housingStatus',
         'currentFinancialSituation', 'employmentCircumstances', 'reasonForApplying',
         'helpMeWrite', 'aiSuggestion', 'accept', 'edit', 'discard', 'cancel',
-        'generate', 'submitSuccess', 'submitError', 'aiError', 'required',
+        'generate', 'submitSuccess', 'submitError', 'confirmationTitle',
+        'confirmationSubtitle', 'summaryPersonal', 'summaryContact', 'summaryFinancial',
+        'startNewApplication', 'aiError', 'required',
       ] as const;
 
       keys.forEach(key => {

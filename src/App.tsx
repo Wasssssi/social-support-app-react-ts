@@ -3,10 +3,12 @@ import { FormProvider } from './context/FormContext'
 
 function App() {
   return (
-    <main className="max-w-[1080px] mx-auto px-4 py-8 md:px-8 md:py-12 md:pb-24">
-      <FormProvider>
-        <Wizard />
-      </FormProvider>
+    <main className="min-h-screen w-full bg-[rgba(0,0,0,0.55)] backdrop-blur-sm">
+      <div className="min-h-screen mx-auto flex items-center justify-center px-4 py-10 sm:px-6">
+        <FormProvider>
+          <Wizard />
+        </FormProvider>
+      </div>
     </main>
   )
 }

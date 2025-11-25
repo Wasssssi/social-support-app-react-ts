@@ -1,13 +1,18 @@
+export type PhoneValue = {
+	countryCode: string;
+	number: string;
+};
+
 export type PersonalInfo = {
 	name: string;
 	nationalId: string;
 	dateOfBirth: string;
-	gender: string;
+	gender: string; //
 	address: string;
 	city: string;
 	state: string;
 	country: string;
-	phone: string;
+	phone: PhoneValue;
 	email: string;
 };
 
@@ -16,6 +21,7 @@ export type FamilyFinancialInfo = {
 	dependents: number | '';
 	employmentStatus: string;
 	monthlyIncome: number | '';
+	currency: string;
 	housingStatus: string;
 };
 

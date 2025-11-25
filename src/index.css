@@ -17,7 +17,12 @@
     margin: 0;
     min-width: 320px;
     min-height: 100vh;
-    background: linear-gradient(180deg, #f9fbff 0%, #eef2f8 100%);
+    background-image:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.45)),
+      url('/social-support.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
   }
 
   #root {

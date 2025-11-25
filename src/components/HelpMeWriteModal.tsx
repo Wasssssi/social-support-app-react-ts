@@ -74,7 +74,7 @@ export default function HelpMeWriteModal({ open, onClose, onAccept, seedPrompt }
 						value={text}
 						onChange={e => setText(e.target.value)}
 						rows={8}
-						className="w-full border border-gray-300 rounded-md p-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+						className="w-full border border-gray-300 rounded-md p-2 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent bg-white"
 						placeholder="..."
 					/>
 				</div>
