@@ -1,4 +1,11 @@
 import { http } from './http';
+import {
+	OPENAI_API_URL,
+	OPENAI_MODEL,
+	OPENAI_TEMPERATURE,
+	OPENAI_SYSTEM_MESSAGE,
+	CONTENT_TYPE_JSON,
+} from '../constants/api';
 
 export async function generateText(
 	apiKey: string,
@@ -6,23 +13,22 @@ export async function generateText(
 	signal?: AbortSignal,
 ): Promise<string> {
 	const res = await http.post(
-		'https://api.openai.com/v1/chat/completions',
+		OPENAI_API_URL,
 		{
-			model: 'gpt-3.5-turbo',
+			model: OPENAI_MODEL,
 			messages: [
 				{
 					role: 'system',
-					content:
-						'You help citizens write brief, clear descriptions for a government social support application.',
+					content: OPENAI_SYSTEM_MESSAGE,
 				},
 				{ role: 'user', content: prompt },
 			],
-			temperature: 0.7,
+			temperature: OPENAI_TEMPERATURE,
 		},
 		{
 			signal,
 			headers: {
-				'Content-Type': 'application/json',
+				'Content-Type': CONTENT_TYPE_JSON,
 				Authorization: `Bearer ${apiKey}`,
 			},
 		},

@@ -12,14 +12,14 @@ describe('mockApi service', () => {
     const mockData: ApplicationData = {
       personal: {
         name: 'John Doe',
-        nationalId: '123456',
+        nationalId: { country: 'United Arab Emirates', id: '123456' },
         dateOfBirth: '1990-01-01',
         gender: 'Male',
         address: '123 Main St',
         city: 'City',
         state: 'State',
         country: 'Country',
-        phone: '1234567890',
+        phone: { countryCode: '+1', number: '1234567890' },
         email: 'john@example.com',
       },
       family: {
@@ -48,14 +48,14 @@ describe('mockApi service', () => {
     const mockData: ApplicationData = {
       personal: {
         name: 'Test',
-        nationalId: '',
+        nationalId: { country: '', id: '' },
         dateOfBirth: '',
         gender: '',
         address: '',
         city: '',
         state: '',
         country: '',
-        phone: '',
+        phone: { countryCode: '+971', number: '' },
         email: '',
       },
       family: {
@@ -84,14 +84,14 @@ describe('mockApi service', () => {
     const mockData: ApplicationData = {
       personal: {
         name: 'Test',
-        nationalId: '',
+        nationalId: { country: '', id: '' },
         dateOfBirth: '',
         gender: '',
         address: '',
         city: '',
         state: '',
         country: '',
-        phone: '',
+        phone: { countryCode: '+971', number: '' },
         email: '',
       },
       family: {
@@ -139,14 +139,14 @@ describe('mockApi service', () => {
     const mockData: ApplicationData = {
       personal: {
         name: 'Jane Doe',
-        nationalId: '987654',
+        nationalId: { country: 'United States', id: '987654' },
         dateOfBirth: '1985-05-15',
         gender: 'Female',
         address: '456 Oak Ave',
         city: 'Metropolis',
         state: 'Province',
         country: 'Nation',
-        phone: '9876543210',
+        phone: { countryCode: '+1', number: '9876543210' },
         email: 'jane@example.com',
       },
       family: {

@@ -2,6 +2,8 @@ import { createContext, useContext, useMemo, useState, type ReactNode, useEffect
 import type { ApplicationData, WizardStep, Locale, PhoneValue } from '../types';
 import { loadFromStorage, saveToStorage, storageKeys, clearStorage } from '../utils/storage';
 import { initialData } from './data';
+import { DEFAULT_PHONE_COUNTRY_CODE } from '../constants/countries';
+import { DEFAULT_LOCALE } from '../constants/formOptions';
 
 
 type FormContextValue = {
@@ -21,7 +23,7 @@ export function FormProvider({ children }: { children: ReactNode }) {
 	const [data, setData] = useState<ApplicationData>(() => hydrateData());
 	const [step, setStep] = useState<WizardStep>(1);
 	const [locale, setLocaleState] = useState<Locale>(() =>
-		loadFromStorage<Locale>(storageKeys.locale, 'en'),
+		loadFromStorage<Locale>(storageKeys.locale, DEFAULT_LOCALE),
 	);
 
 	const isRtl = locale === 'ar';
@@ -85,17 +87,17 @@ function hydrateData(): ApplicationData {
 }
 
 function normalizePhone(phone?: PhoneValue | string): PhoneValue {
-	if (!phone) return { countryCode: '+971', number: '' };
+	if (!phone) return { countryCode: DEFAULT_PHONE_COUNTRY_CODE, number: '' };
 	if (typeof phone === 'string') {
 		const trimmed = phone.trim();
 		const match = trimmed.match(/^(\+\d+)(.*)$/);
 		return {
-			countryCode: match ? match[1] : '+971',
+			countryCode: match ? match[1] : DEFAULT_PHONE_COUNTRY_CODE,
 			number: match ? match[2].replace(/\D/g, '') : trimmed.replace(/\D/g, ''),
 		};
 	}
 	return {
-		countryCode: phone.countryCode || '+971',
+		countryCode: phone.countryCode || DEFAULT_PHONE_COUNTRY_CODE,
 		number: phone.number || '',
 	};
 }

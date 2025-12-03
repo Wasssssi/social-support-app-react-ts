@@ -18,7 +18,10 @@ export default function ConfirmationStep({ data, locale, onRestart }: Confirmati
 			<div className="mt-8 grid gap-6 md:grid-cols-3">
 				<SummaryCard title={t(locale, 'summaryPersonal')}>
 					<SummaryItem label={t(locale, 'name')} value={data.personal.name} />
-					<SummaryItem label={t(locale, 'nationalId')} value={data.personal.nationalId} />
+					<SummaryItem 
+						label={t(locale, 'nationalId')} 
+						value={data.personal.nationalId?.id ? `${data.personal.nationalId.country} - ${data.personal.nationalId.id}` : ''} 
+					/>
 					<SummaryItem label={t(locale, 'dateOfBirth')} value={data.personal.dateOfBirth} />
 					<SummaryItem label={t(locale, 'gender')} value={data.personal.gender} />
 				</SummaryCard>

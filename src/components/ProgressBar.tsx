@@ -1,11 +1,7 @@
 import { useFormContextSafe } from '../context/FormContext';
 import { t } from '../i18n';
+import { steps } from '../data/locations';
 
-const steps = [
-	{ id: 1, label: 'step1' },
-	{ id: 2, label: 'step2' },
-	{ id: 3, label: 'step3' },
-];
 
 export default function ProgressBar() {
 	const { step, locale } = useFormContextSafe();

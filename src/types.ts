@@ -3,9 +3,14 @@ export type PhoneValue = {
 	number: string;
 };
 
+export type NationalIdValue = {
+	country: string;
+	id: string;
+};
+
 export type PersonalInfo = {
 	name: string;
-	nationalId: string;
+	nationalId: NationalIdValue;
 	dateOfBirth: string;
 	gender: string; //
 	address: string;

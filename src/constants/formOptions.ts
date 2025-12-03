@@ -1,7 +1,6 @@
 export const genderOptions = [
 	{ value: 'male', labelKey: 'genderMale' },
 	{ value: 'female', labelKey: 'genderFemale' },
-	{ value: 'other', labelKey: 'genderOther' },
 ] as const;
 
 export const maritalOptions = [
@@ -29,4 +28,8 @@ export const currencyOptions = [
 ] as const;
 
 export const GRID_CLASS = 'grid gap-4 md:gap-5 grid-cols-1 md:grid-cols-2';
+
+// Default values
+export const DEFAULT_CURRENCY = 'AED';
+export const DEFAULT_LOCALE: 'en' | 'ar' = 'en';
 

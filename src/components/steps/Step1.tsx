@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { useFormContextSafe } from '../../context/FormContext';
 import { t } from '../../i18n';
-import type { ApplicationData, Locale, PhoneValue } from '../../types';
+import type { ApplicationData, Locale, PhoneValue, NationalIdValue } from '../../types';
 import FormField from '../FormField';
 import PhoneInput from '../PhoneInput';
+import NationalIdInput from '../NationalIdInput';
 import LocationSelect from '../LocationSelect';
+import DatePicker from '../DatePicker';
 import { genderOptions, GRID_CLASS } from '../../constants/formOptions';
 
 type Step1Props = {
@@ -63,19 +64,31 @@ export default function Step1({ data, onChange, onNext, locale, isRtl }: Step1Pr
 						{errors.name && <span className="text-red-300 text-xs mt-1">{errors.name.message as string}</span>}
 					</FormField>
 					<FormField label={t(locale, 'nationalId')}>
-						<input
-							className="border border-white/30 rounded-lg px-3 py-2.5 text-sm bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
-							{...register('nationalId', { required: t(locale, 'required') })}
+						<Controller
+							control={control}
+							name="nationalId"
+							rules={{
+								validate: (value: NationalIdValue) => {
+									if (!value?.country || !value?.id) {
+										return t(locale, 'required');
+									}
+									return true;
+								},
+							}}
+							render={({ field, fieldState }) => (
+								<NationalIdInput value={field.value} onChange={field.onChange} error={fieldState.error?.message} />
+							)}
 						/>
-						{errors.nationalId && <span className="text-red-300 text-xs mt-1">{errors.nationalId.message as string}</span>}
 					</FormField>
 					<FormField label={t(locale, 'dateOfBirth')}>
-						<input
-							type="date"
-							className="border border-white/30 rounded-lg px-3 py-2.5 text-sm bg-white text-slate-900 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:border-transparent"
-							{...register('dateOfBirth', { required: t(locale, 'required') })}
+						<DatePicker
+							value={watch('dateOfBirth') || ''}
+							onChange={(value) => {
+								setValue('dateOfBirth', value, { shouldValidate: true });
+								trigger('dateOfBirth');
+							}}
+							error={errors.dateOfBirth?.message as string | undefined}
 						/>
-						{errors.dateOfBirth && <span className="text-red-300 text-xs mt-1">{errors.dateOfBirth.message as string}</span>}
 					</FormField>
 					<FormField label={t(locale, 'gender')}>
 						<select

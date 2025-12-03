@@ -1,16 +1,18 @@
 import type { ApplicationData } from "../types";
+import { DEFAULT_PHONE_COUNTRY_CODE } from "../constants/countries";
+import { DEFAULT_CURRENCY } from "../constants/formOptions";
 
 export const initialData: ApplicationData = {
 	personal: {
 		name: '',
-		nationalId: '',
+		nationalId: { country: '', id: '' },
 		dateOfBirth: '',
 		gender: '',
 		address: '',
 		city: '',
 		state: '',
 		country: '',
-		phone: { countryCode: '+971', number: '' },
+		phone: { countryCode: DEFAULT_PHONE_COUNTRY_CODE, number: '' },
 		email: '',
 	},
 	family: {
@@ -18,7 +20,7 @@ export const initialData: ApplicationData = {
 		dependents: '',
 		employmentStatus: '',
 		monthlyIncome: '',
-		currency: 'AED',
+		currency: DEFAULT_CURRENCY,
 		housingStatus: '',
 	},
 	situation: {

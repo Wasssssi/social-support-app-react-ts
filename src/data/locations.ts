@@ -33,4 +33,9 @@ export const locations: LocationData[] = [
 	},
 ];
 
+export const steps = [
+	{ id: 1, label: 'step1' },
+	{ id: 2, label: 'step2' },
+	{ id: 3, label: 'step3' },
+];
 
